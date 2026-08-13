@@ -1,5 +1,9 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
 root = true
 
+# Padrões para todos os arquivos
 [*]
 indent_style = space
 indent_size = 2
@@ -7,3 +11,20 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+max_line_length = 180
+
+# Arquivos Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# Arquivos YAML
+[*.{yml,yaml}]
+indent_size = 2
+
+# Arquivos de configuração
+[{package.json,.prettierrc,.eslintrc}]
+indent_size = 2
+
+# Scripts shell
+[*.sh]
+end_of_line = lf
