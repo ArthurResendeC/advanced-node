@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "target": "es2024",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+    "types": ["node"],
+    "strict": true
+  },
+  "include": ["src"]
+}
