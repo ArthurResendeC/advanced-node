@@ -10,10 +10,12 @@
     "format:check": "oxfmt --check src",
     "lint": "oxlint src",
     "lint:fix": "oxlint --fix src",
-    "lint:staged": "lint-staged --hide-all"
+    "lint:staged": "lint-staged --hide-all",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/bun": "^1.4.2",
+    "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "module-alias": "^2.3.4",
     "oxfmt": "^0.67.0",
