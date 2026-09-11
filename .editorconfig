@@ -22,7 +22,7 @@ trim_trailing_whitespace = false
 indent_size = 2
 
 # Arquivos de configuração
-[{package.json,.prettierrc,.eslintrc}]
+[{package.json,.prettierrc,.eslintrc, .oxcfmtrc.json,.stylelintrc,.babelrc,.editorconfig}]
 indent_size = 2
 
 # Scripts shell

@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["./src/*"],
     },
-    "types": ["node"],
+    "types": ["node", "bun"],
     "strict": true
   },
   "include": ["src"]
