@@ -9,7 +9,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "types": ["node", "bun"],
     "strict": true
