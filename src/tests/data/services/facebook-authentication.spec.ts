@@ -16,6 +16,7 @@ const makeSut = () => {
 describe('FacebookAuthenticationService', () => {
   let loadFacebookUserApi: LoadFacebookUserApi;
   let sut: FacebookAuthenticationService;
+  const token = 'any_token';
 
   beforeEach(() => {
     loadFacebookUserApi = {
@@ -26,10 +27,10 @@ describe('FacebookAuthenticationService', () => {
   });
 
   it('should call LoadFacebookUserApi with correct params', async () => {
-    await sut.perform({ token: 'any_token' });
+    await sut.perform({ token });
 
     expect(loadFacebookUserApi.loadUser).toHaveBeenCalledWith({
-      token: 'any_token',
+      token,
     });
     expect(loadFacebookUserApi.loadUser).toHaveBeenCalledTimes(1);
   });
@@ -41,7 +42,7 @@ describe('FacebookAuthenticationService', () => {
 
     const sut = new FacebookAuthenticationService(loadFacebookUserApi);
 
-    const authResult = await sut.perform({ token: 'any_token' });
+    const authResult = await sut.perform({ token });
 
     expect(authResult).toEqual(new AuthenticationError());
   });
