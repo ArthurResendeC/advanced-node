@@ -1,7 +1,7 @@
 import { LoadFacebookUserApi } from '@/data/contracts/apis';
 import { FacebookAuthenticationService } from '@/data/services';
 import { AuthenticationError } from '@/domain/errors';
-import { describe, it, expect, mock } from 'bun:test';
+import { describe, it, expect, mock, beforeEach } from 'bun:test';
 
 const makeSut = () => {
   const loadFacebookUserApi = {
@@ -14,9 +14,18 @@ const makeSut = () => {
 };
 
 describe('FacebookAuthenticationService', () => {
-  it('should call LoadFacebookUserApi with correct params', async () => {
-    const { sut, loadFacebookUserApi } = makeSut();
+  let loadFacebookUserApi: LoadFacebookUserApi;
+  let sut: FacebookAuthenticationService;
 
+  beforeEach(() => {
+    loadFacebookUserApi = {
+      loadUser: mock<LoadFacebookUserApi['loadUser']>(),
+    };
+
+    sut = new FacebookAuthenticationService(loadFacebookUserApi);
+  });
+
+  it('should call LoadFacebookUserApi with correct params', async () => {
     await sut.perform({ token: 'any_token' });
 
     expect(loadFacebookUserApi.loadUser).toHaveBeenCalledWith({
