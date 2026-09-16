@@ -3,13 +3,19 @@ import { FacebookAuthenticationService } from '@/data/services';
 import { AuthenticationError } from '@/domain/errors';
 import { describe, it, expect, mock } from 'bun:test';
 
+const makeSut = () => {
+  const loadFacebookUserApi = {
+    loadUser: mock<LoadFacebookUserApi['loadUser']>(),
+  };
+
+  const sut = new FacebookAuthenticationService(loadFacebookUserApi);
+
+  return { sut, loadFacebookUserApi };
+};
+
 describe('FacebookAuthenticationService', () => {
   it('should call LoadFacebookUserApi with correct params', async () => {
-    const loadFacebookUserApi = {
-      loadUser: mock<LoadFacebookUserApi['loadUser']>(),
-    };
-
-    const sut = new FacebookAuthenticationService(loadFacebookUserApi);
+    const { sut, loadFacebookUserApi } = makeSut();
 
     await sut.perform({ token: 'any_token' });
 
@@ -20,9 +26,7 @@ describe('FacebookAuthenticationService', () => {
   });
 
   it('should return AuthenticationError when LoadFacebookUserApi returns undefined', async () => {
-    const loadFacebookUserApi = {
-      loadUser: mock<LoadFacebookUserApi['loadUser']>(),
-    };
+    const { loadFacebookUserApi } = makeSut();
 
     loadFacebookUserApi.loadUser.mockResolvedValueOnce(undefined);
 
