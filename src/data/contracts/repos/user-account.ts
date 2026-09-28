@@ -1,7 +1,5 @@
 export interface LoadUserAccountRepository {
-  load: (
-    params: LoadUserAccountRepository.Params,
-  ) => Promise<LoadUserAccountRepository.Result>;
+  load: (params: LoadUserAccountRepository.Params) => Promise<LoadUserAccountRepository.Result>;
 }
 
 export namespace LoadUserAccountRepository {

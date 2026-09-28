@@ -4,13 +4,6 @@
   "arrowParens": "avoid",
   "endOfLine": "lf",
   "insertFinalNewline": true,
-  "printWidth": 80,
-  "ignorePatterns": [
-    "dist/**",
-    "bun.lock",
-    "playwright-report/**",
-    "test-results/**",
-    "deploy/**",
-    "/coverage/**"
-  ]
+  "printWidth": 100,
+  "ignorePatterns": ["dist/**", "bun.lock", "playwright-report/**", "test-results/**", "deploy/**", "/coverage/**"]
 }
